@@ -1,0 +1,9 @@
+actor: PetsTester
+suite_namespace: Tests\Pets
+modules:
+    enabled:
+        - REST:
+            url: 'https://petstore.swagger.io/v2/'
+            depends: PhpBrowser
+        - Asserts
+
