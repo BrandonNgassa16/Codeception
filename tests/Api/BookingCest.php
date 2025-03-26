@@ -80,14 +80,11 @@ final class BookingCest
         $I->seeResponseMatchesJsonType([
             'token' => 'string'
         ]);
-
-        // Store the token in the class property
         $this->token = $I->grabDataFromResponseByJsonPath('$.token')[0];
     }
     public function updateBooking(ApiTester $I)
     { 
-        $bookId = $this->bookingId; // Retrieve the booking ID from the class property
-
+        $bookId = $this->bookingId; 
         // Ensure the token is set
         if (!isset($this->token)) {
             $this->authenticateUser($I); // Authenticate and retrieve the token if not already set
@@ -98,7 +95,7 @@ final class BookingCest
         $I->haveHttpHeader('Cookie', 'token=' . $this->token);
 
         $payload = [
-            'firstname' => 'DarylFoye',
+            'firstname' => 'Brandon',
             'lastname' => 'Yess',
             'totalprice' => 200,
             'depositpaid' => false,
